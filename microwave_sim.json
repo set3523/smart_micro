@@ -1,0 +1,37 @@
+{
+    "geometry_parameters": {
+        "cavity_width": 0.35,
+        "cavity_depth": 0.35,
+        "cavity_height": 0.25,
+        "wg_width": 0.086,
+        "wg_height": 0.043,
+        "wg_length": 0.1,
+        "bowl_radius": 0.08,
+        "bowl_height": 0.02,
+        "dumpling_radius_skin": 0.015,
+        "dumpling_radius_filling": 0.01
+    },
+    "physical_groups": {
+        "air": 1,
+        "stirrer": 2,
+        "bowl": 3,
+        "mass_skin": 5,
+        "mass_filling": 6,
+        "port": 7,
+        "wall": 8
+    },
+    "materials": {
+        "air": {
+            "epsilon": "1.0"
+        },
+        "bowl": {
+            "epsilon": "5.5"
+        },
+        "mass_skin": {
+            "epsilon": "25 - 5j"
+        },
+        "mass_filling": {
+            "epsilon": "45 - 15j"
+        }
+    }
+}
