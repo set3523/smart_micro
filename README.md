@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Microwave Simulation Suite
 
 전자레인지 EM(전자기) 해석, Gmsh 메쉬 생성, 회전 가열/transient 열전달, 스케줄 최적화를 하나의 패키지로 모듈화한 프로젝트입니다.
@@ -138,3 +139,4 @@ E, Q, E_vec = run_microwave_simulation(
 - mpi4py, numpy, ufl
 - h5py, scipy (열전달/최적화 모듈)
 
+=======

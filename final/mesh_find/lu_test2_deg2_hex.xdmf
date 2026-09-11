@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE Xdmf SYSTEM "Xdmf.dtd" []>
+<Xdmf Version="3.0" xmlns:xi="https://www.w3.org/2001/XInclude">
+  <Domain>
+    <Grid Name="mesh" GridType="Uniform">
+      <Topology TopologyType="Tetrahedron" NumberOfElements="149916" NodesPerElement="4">
+        <DataItem Dimensions="149916 4" NumberType="Int" Format="HDF">lu_test2_deg2_hex.h5:/Mesh/mesh/topology</DataItem>
+      </Topology>
+      <Geometry GeometryType="XYZ">
+        <DataItem Dimensions="27648 3" Format="HDF">lu_test2_deg2_hex.h5:/Mesh/mesh/geometry</DataItem>
+      </Geometry>
+    </Grid>
+    <Grid Name="mesh_tags" GridType="Uniform">
+      <xi:include xpointer="xpointer(/Xdmf/Domain/Grid/Geometry)" />
+      <Topology TopologyType="Tetrahedron" NumberOfElements="149916" NodesPerElement="4">
+        <DataItem Dimensions="149916 4" NumberType="Int" Format="HDF">lu_test2_deg2_hex.h5:/MeshTags/mesh_tags/topology</DataItem>
+      </Topology>
+      <Attribute Name="mesh_tags" AttributeType="Scalar" Center="Cell">
+        <DataItem Dimensions="149916 1" Format="HDF">lu_test2_deg2_hex.h5:/MeshTags/mesh_tags/Values</DataItem>
+      </Attribute>
+    </Grid>
+    <Grid Name="E_field_Lagrange" GridType="Collection" CollectionType="Temporal">
+      <Grid Name="E_field_Lagrange" GridType="Uniform">
+        <xi:include xpointer="xpointer(/Xdmf/Domain/Grid[@GridType='Uniform'][1]/*[self::Topology or self::Geometry])" />
+        <Time Value="0" />
+        <Attribute Name="real_E_field_Lagrange" AttributeType="Vector" Center="Node">
+          <DataItem Dimensions="27648 3" Format="HDF">lu_test2_deg2_hex.h5:/Function/real_E_field_Lagrange/0</DataItem>
+        </Attribute>
+        <Attribute Name="imag_E_field_Lagrange" AttributeType="Vector" Center="Node">
+          <DataItem Dimensions="27648 3" Format="HDF">lu_test2_deg2_hex.h5:/Function/imag_E_field_Lagrange/0</DataItem>
+        </Attribute>
+      </Grid>
+    </Grid>
+    <Grid Name="H_field" GridType="Collection" CollectionType="Temporal">
+      <Grid Name="H_field" GridType="Uniform">
+        <xi:include xpointer="xpointer(/Xdmf/Domain/Grid[@GridType='Uniform'][1]/*[self::Topology or self::Geometry])" />
+        <Time Value="0" />
+        <Attribute Name="real_H_field" AttributeType="Vector" Center="Node">
+          <DataItem Dimensions="27648 3" Format="HDF">lu_test2_deg2_hex.h5:/Function/real_H_field/0</DataItem>
+        </Attribute>
+        <Attribute Name="imag_H_field" AttributeType="Vector" Center="Node">
+          <DataItem Dimensions="27648 3" Format="HDF">lu_test2_deg2_hex.h5:/Function/imag_H_field/0</DataItem>
+        </Attribute>
+      </Grid>
+    </Grid>
+    <Grid Name="Poynting_Vector" GridType="Collection" CollectionType="Temporal">
+      <Grid Name="Poynting_Vector" GridType="Uniform">
+        <xi:include xpointer="xpointer(/Xdmf/Domain/Grid[@GridType='Uniform'][1]/*[self::Topology or self::Geometry])" />
+        <Time Value="0" />
+        <Attribute Name="real_Poynting_Vector" AttributeType="Vector" Center="Node">
+          <DataItem Dimensions="27648 3" Format="HDF">lu_test2_deg2_hex.h5:/Function/real_Poynting_Vector/0</DataItem>
+        </Attribute>
+        <Attribute Name="imag_Poynting_Vector" AttributeType="Vector" Center="Node">
+          <DataItem Dimensions="27648 3" Format="HDF">lu_test2_deg2_hex.h5:/Function/imag_Poynting_Vector/0</DataItem>
+        </Attribute>
+      </Grid>
+    </Grid>
+    <Grid Name="HeatSource" GridType="Collection" CollectionType="Temporal">
+      <Grid Name="HeatSource" GridType="Uniform">
+        <xi:include xpointer="xpointer(/Xdmf/Domain/Grid[@GridType='Uniform'][1]/*[self::Topology or self::Geometry])" />
+        <Time Value="0" />
+        <Attribute Name="real_HeatSource" AttributeType="Scalar" Center="Cell">
+          <DataItem Dimensions="149916 1" Format="HDF">lu_test2_deg2_hex.h5:/Function/real_HeatSource/0</DataItem>
+        </Attribute>
+        <Attribute Name="imag_HeatSource" AttributeType="Scalar" Center="Cell">
+          <DataItem Dimensions="149916 1" Format="HDF">lu_test2_deg2_hex.h5:/Function/imag_HeatSource/0</DataItem>
+        </Attribute>
+      </Grid>
+    </Grid>
+  </Domain>
+</Xdmf>
